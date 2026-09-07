@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive D3 exploration of academic and socioeconomic warning signs associated with university dropout outcomes.">
+  <title>From Warning Signs to Student Success</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="eyebrow">D3 • INTERACTIVE STUDENT RISK EXPLORER</div>
+    <h1>From Warning Signs to Student Success:<br>Exploring Academic and Socioeconomic Factors in University Dropout Risk</h1>
+    <p class="question">How can academic and socioeconomic warning signs help identify students showing profiles associated with dropout and support timely educational assistance in Portugal?</p>
+  </header>
+
+  <section class="toolbar" aria-label="Visualization controls">
+    <div class="control">
+      <label for="targetFilter">Outcome</label>
+      <select id="targetFilter">
+        <option value="All">All outcomes</option>
+        <option value="Dropout">Dropout</option>
+        <option value="Enrolled">Enrolled</option>
+        <option value="Graduate">Graduate</option>
+      </select>
+    </div>
+
+    <div class="control">
+      <label for="courseFilter">Course</label>
+      <select id="courseFilter"><option value="All">All courses</option></select>
+    </div>
+
+    <div class="control">
+      <label for="terrainMetric">Terrain encoding options</label>
+      <select id="terrainMetric">
+        <option value="dropoutRate">Dropout rate</option>
+        <option value="count">Student count</option>
+      </select>
+    </div>
+
+    <button id="zoomBtn" class="secondary" aria-pressed="false">Zoom: Off</button>
+    <button id="resetBtn" class="primary">Reset view</button>
+
+    <div class="selection" id="selectionText">4,424 students</div>
+  </section>
+
+  <section class="card hero-card">
+    <div class="card-head">
+      <div>
+        <span class="number">01</span>
+        <h2>Warning-Sign Terrain</h2>
+        <p>Each bubble represents students in one risk zone. Right = stronger academic stability · Up = greater socioeconomic pressure · Size = student count.</p>
+      </div>
+      <div class="legend" id="targetLegend"></div>
+    </div>
+
+    <div class="terrain-shell" id="terrainWrap">
+      <svg id="terrain" role="img" aria-label="Zoomable academic stability and socioeconomic pressure risk terrain"></svg>
+      <div class="tooltip" id="terrainTip"></div>
+      <div class="terrain-hint" id="terrainHint">Turn Zoom on first · Scroll/pinch to zoom · Drag to pan · Click a bubble to explore</div>
+      <div class="terrain-readout" id="terrainReadout"></div>
+    </div>
+
+    <div class="micro-note">
+      <b>Academic stability</b> combines semester approval rates (65%) and normalized grades (35%).
+      <b>Socioeconomic pressure</b> combines financial flags, parents' higher-education context, displacement and age band.
+      These are exploratory indices, not predicted probabilities or causal effects.
+    </div>
+  </section>
+
+  <section class="card flow-card">
+    <div class="card-head">
+      <div>
+        <span class="number">02</span>
+        <h2>Combined Warning Profiles → Outcomes</h2>
+        <p>Follow warning profiles to Dropout, Enrolled, or Graduate.</p>
+        <div class="flow-hint">Click a profile or ribbon to filter the terrain above</div>
+      </div>
+      <div class="flow-meta">
+        <div class="flow-course" id="flowCourse">Course: All courses</div>
+        <div class="flow-summary" id="flowSummary"></div>
+      </div>
+    </div>
+
+    <div class="flow-shell" id="flowWrap">
+      <svg id="sankey" role="img" aria-label="Interactive combined warning profiles to observed outcomes Sankey diagram"></svg>
+      <div class="tooltip" id="flowTip"></div>
+    </div>
+
+    <div class="micro-note" id="flowNote"></div>
+  </section>
+
+  <footer>
+    <span>Source: UCI Machine Learning Repository — Predict Students' Dropout and Academic Success (ID 697).</span>
+    <span>Interactive exploration • 4,424 student records • 36 original features</span>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
