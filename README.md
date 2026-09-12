@@ -206,6 +206,32 @@ rather than viewing the two visualizations as unrelated charts.
 
 ---
 
+---
+
+# Key Findings
+
+The findings below summarize the **full dataset (4,424 students)**. They are
+included to make the visual analytics story explicit rather than requiring
+the viewer to infer every conclusion from the charts.
+
+1. **Fragile academics are strongly associated with dropout:** 81.7% of
+   students in the Fragile academic group are observed as Dropout.
+
+2. **Stable academics are strongly associated with graduation:** 76.7% of
+   students in the Stable academic group are observed as Graduate.
+
+3. **Higher socioeconomic pressure adds another warning signal:** 77.9% of
+   students in the High socioeconomic pressure group are observed as Dropout.
+
+4. **Combined warning signs separate outcomes most clearly:** the
+   Fragile · High profile has 94.7% observed dropout, while the Stable · Lower
+   profile has 78.3% observed graduation.
+
+These are observed associations in this dataset. They are **not causal
+effects, predicted probabilities, or individual-level dropout predictions**.
+The findings use the full dataset and do not change when interactive filters
+are applied.
+
 # Data Processing
 
 The original dataset contains multiple academic, demographic, socioeconomic,
